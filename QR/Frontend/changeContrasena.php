@@ -65,11 +65,11 @@
     <h1>Cambiar contraseña</h1>
     <form action="changeContrasena.php" method="post">
         Contraseña nueva:
-        <input type="password" name="contrasenaNueva">
+        <input type="password" name="contrasenaNueva" required>
         <br/>
         <br/>
         Confirmar contraseña nueva:
-        <input type="password" name="contrasenaConfirmada">
+        <input type="password" name="contrasenaConfirmada" required>
         <br/>
         <br/>
         <input type="hidden" name="id" value="<?php echo $id ?>">

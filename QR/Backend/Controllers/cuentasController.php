@@ -73,6 +73,34 @@
             return $response;
         }
 
+        public function listOnePorCorreo($correo){
+            try {
+                $sql = "SELECT * FROM cuentas WHERE correo = '".$correo."'";
+                $lista=$this->conexion->ejecutar($sql);
+                $resultado=$lista->fetchALL();
+                if(!empty($resultado)){
+                    $response = [
+                        'message' => 'Correo encontrado',
+                        'cuenta' => $resultado,
+                        'status' => '200'
+                    ];
+                } else {
+                    $response = [
+                        'message' => 'Correo no registrado',
+                        'cuenta' => $resultado,
+                        'status' => '200'
+                    ];
+                }
+            } catch (Exception $e) {
+                $response = [
+                    'message' => 'Error al listar una cuenta',
+                    'error' => $e->getMessage(),
+                    'status' => '404'
+                ];
+            }
+            return $response;
+        }
+
         public function validar($email){
             try{
                 $sql="SELECT * FROM cuentas WHERE correo='".$email."'";
