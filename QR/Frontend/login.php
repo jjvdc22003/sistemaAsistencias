@@ -60,8 +60,68 @@
         <button type="submit">Iniciar sesión</button>
         <br>
         <br>
-        <?php echo ($f==1)?"Usuario no encontrado<br>":""; ?>
-        <?php echo ($f==2)?"Usuario o contraseña incorrectos<br>":""; ?>
+        <?php if($f==1){
+            echo '
+                 <div id="" class="modal">
+                     <div class="modal-content">
+                         <p>Usuario <strong>no encontrado</strong></p>
+                         <span class="close-button" onclick="closeModal()">Cerrar</span>
+                     </div>
+                 </div>
+             ';
+        } ?>
+        <?php if($f==2){
+            echo '
+                <div id="" class="modal">
+                    <div class="modal-content">
+                        <p>Usuario o contraseña <strong>incorrectos</strong></p>
+                        <span class="close-button" onclick="closeModal()">Cerrar</span>
+                    </div>
+                </div>
+            ';
+        } ?>
     </form>
 </body>
 </html>
+
+
+<script>
+    function closeModal() {
+        window.location.href = 'login.php';
+    }
+</script>
+
+<style>
+    .modal {
+        display: block; /* Mostrar el modal */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%;
+        text-align: center;
+    }
+    .close-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .close-button:hover {
+        background-color: #45a049;
+    }
+</style>
