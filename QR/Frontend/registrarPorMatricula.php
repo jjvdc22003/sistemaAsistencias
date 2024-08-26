@@ -6,10 +6,6 @@
         header('Location: login.php');
         exit();
     }
-    elseif (isset($_SESSION["matricula"])) {
-        header('Location: indexA.php');
-        exit();
-    }
 
     //Listar
     if($_GET){
