@@ -79,11 +79,11 @@
                <td><?php echo $alumno['carrera']; ?></td>
                <td><?php echo $alumno['grupo']; ?></td>
                <td>
-               <form action="searchAlumno.php" method="post">
-                            <img src="<?php echo "../assets/QR's/".$alumno['matricula'].".png" ?>" alt="QR del alumno" class="centered-image">
-                            <input type="hidden" name="ruta" value="<?php echo "../../assets/QR's/".$alumno['matricula'].".png" ?>">
-                            <input type="submit" value="Descargar">
-                        </form>
+                    <form action="searchAlumno.php" method="post">
+                        <img src="<?php echo "../assets/QR's/".$alumno['matricula'].".png" ?>" alt="QR del alumno" class="centered-image">
+                        <input type="hidden" name="ruta" value="<?php echo "../../assets/QR's/".$alumno['matricula'].".png" ?>">
+                        <input type="submit" value="Descargar">
+                    </form>
                </td>
                <td class="centered">
                    <form action="updateAlumno.php" method="get"> 
