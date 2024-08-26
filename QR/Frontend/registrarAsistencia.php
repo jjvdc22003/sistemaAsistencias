@@ -1,5 +1,5 @@
 <?php
-require "../../QR_back/Controllers/asistenciasController.php";
+require "../Backend/Controllers/asistenciasController.php";
 
   session_start();
   if(!isset($_SESSION["correo"])){
@@ -128,7 +128,7 @@ if($_POST){
             </div>
             <div>
                 <a href="registrarPorMatricula.php" class="blue-button">Registrar por matricula</a>
-                <a href="menuAsistencias.php" class="close-button">Regresar al menú</a>
+                <a href="index.php" class="close-button">Regresar al menú</a>
             </div>
         </div>
     ';
@@ -141,7 +141,7 @@ if($_POST){
 <head>
   <meta charset="UTF-8">
   <title>Registrar asistencia</title>
-  <script src="../../QR_back/QR.js"></script>
+  <script src="../Backend/QR.js"></script>
 </head>
 <body>
 
@@ -192,7 +192,7 @@ if($_POST){
 
     //Script para modales
     function closeModal() {
-        window.location.href = 'menuAsistencias.php';
+        window.location.href = 'index.php';
     }
     function reloadModal() {
         window.location.href = 'registrarAsistencia.php';

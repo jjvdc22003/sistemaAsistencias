@@ -1,5 +1,5 @@
 <?php 
-    require "../../QR_back/Controllers/alumnosController.php";
+    require "../Backend/Controllers/alumnosController.php";
 
     $id="";
 
