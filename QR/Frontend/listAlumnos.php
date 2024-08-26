@@ -45,7 +45,8 @@
     <br/>
     <br/>
     <a href="createAlumno.php" class="azul-button">Agregar</a>
-     <a href="index.php" class="close-button">Regresar al menú principal</a>
+    <a href="generateAlumnos.php" class="purple-button">Generar alumnos por Excel</a>
+    <a href="index.php" class="close-button">Regresar al menú principal</a>
     <!-- Mostrar listado -->
      <table>
         <?php if(!empty($resultado)){?>
@@ -149,5 +150,17 @@
     }
     .close-button:hover {
         background-color: #800000;
+    }
+    .purple-button {
+        background-color: #A11C55;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .purple-button:hover {
+        background-color: #800040;
     }
 </style>
