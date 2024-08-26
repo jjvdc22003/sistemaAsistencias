@@ -65,6 +65,7 @@
     <title>Generar alumnos</title>
 </head>
 <body>
+    <h1>Registrar alumnos por excel</h1>
     <form action="generateAlumnos.php" enctype="multipart/form-data" method="post">
         <label for="archivoExcel">Subir archivo Excel:</label>
         <input type="file" id="archivoExcel" name="archivoExcel" required accept=".xls,.xlsx">
