@@ -1,5 +1,5 @@
 <?php
-    require "../../QR_back/Controllers/cuentasController.php";
+    require "../Backend/Controllers/cuentasController.php";
 
     session_start();
     if(!isset($_SESSION["correo"])){
@@ -35,10 +35,8 @@
 </head>
 <body>
     <h2>Listado de cuentas de administradores registradas</h2>
-    <br/>
-    <br/>
     <a href="createAdmin.php" class="azul-button">Agregar</a>
-    <a href="index.php" class="close-button">Regresar al menú principal</a>
+    <a href="index.php" class="close-button">Regresar al menú</a>
 
     <!-- Mostrar listado -->
      <table>
@@ -63,10 +61,12 @@
                         </form>
                     </td>
                     <td class="centered">
+                        <?php if($alumno['id'] != 1) { ?>
                         <form action="deleteAdmin.php" method="get"> 
                             <input type="hidden" name="id" value="<?php echo $alumno['id'] ?>">
                             <input type="submit" value="Eliminar">
                         </form>
+                        <?php } ?>
                     </td>
                 </tr> 
                 <?php } ?>
