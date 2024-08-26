@@ -2,6 +2,7 @@
 //composer require phpoffice/phpspreadsheet
 require 'vendor/autoload.php';
 require "BD.php";
+require_once __DIR__."/Controllers/alumnosController.php";
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -75,6 +76,7 @@ class generateList {
 
   public function generateAlumnos($ruta){
     $spreadsheet = IOFactory::load($ruta);
+    $sheet = $spreadsheet->getActiveSheet();
     
     do {
       $a = 2;
@@ -84,8 +86,40 @@ class generateList {
       $correo = $sheet->getCell('D'.$a)->getValue();
       $carrera = $sheet->getCell('E'.$a)->getValue();
       $grupo = $sheet->getCell('F'.$a)->getValue();
+
+      $alumno = array(
+        'matricula' => (isset($matricula)) ? $matricula : "",
+        'nombre' => (isset($nombre)) ? $nombre : "",
+        'sexo' => (isset($sexo)) ? $sexo : "",
+        'correo' => (isset($correo)) ? $correo : "",
+        'carrera' => (isset($carrera)) ? $carrera : "",
+        'grupo' => (isset($grupo)) ? $grupo : ""
+    );
+    $alumnoController = new alumno;
+        $buscar = $alumnoController->listOneMatricula($alumno['matricula']);
+        $buscarCorreo = $alumnoController->listOnePorCorreo($alumno['correo']);
+        if($buscar['status'] == 200){
+            if(!empty($buscar['alumno'])){
+            } elseif($buscarCorreo['status'] == 200) {
+                if(!empty($buscarCorreo['cuenta'])){
+                } else{
+                    //Agregar
+                    $agregar = $alumnoController->create($alumno);
+                    if($agregar['status'] == 200){
+                    } else {
+                        return -1;
+                    }
+                }
+            } else {
+              return -1;
+            }
+        } else {
+          return -1;
+        }
       
-    } while ($a <= 10);
+    } while ($matricula!="");
+
+    return 1;
   }
 }
 
