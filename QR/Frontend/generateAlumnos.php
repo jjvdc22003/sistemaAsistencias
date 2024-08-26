@@ -1,6 +1,5 @@
 <?php
     require "../Backend/generateList.php";
-
     session_start();
     if(!isset($_SESSION["correo"])){
         header('Location: login.php');
@@ -68,7 +67,7 @@
 <body>
     <form action="generateAlumnos.php" enctype="multipart/form-data" method="post">
         <label for="archivoExcel">Subir archivo Excel:</label>
-        <input type="file" id="archivoExcel" name="archivoExcel" accept=".xls,.xlsx">
+        <input type="file" id="archivoExcel" name="archivoExcel" required accept=".xls,.xlsx">
         <br>
         <input type="submit" name="enviar" value="Enviar información">
         <a href="listAlumnos.php">Volver</a>
