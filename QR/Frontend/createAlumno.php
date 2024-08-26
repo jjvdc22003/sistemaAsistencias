@@ -1,6 +1,5 @@
 <?php
-    require "../../QR_back/Controllers/alumnosController.php";
-    require_once '../../QR_back/Controllers/cuentasController.php';
+    require "../Backend/Controllers/alumnosController.php";
 
     session_start();
     //strtoupper($nombre)
@@ -22,17 +21,10 @@
             'carrera' => (isset($_POST['carrera'])) ? $_POST['carrera'] : "",
             'grupo' => (isset($_POST['grupo'])) ? $_POST['grupo'] : ""
         );
-        $cuenta = array(
-            'correo' => (isset($_POST['correo'])) ? $_POST['correo'] : "",
-            'contrasena' => (isset($_POST['contrasena'])) ? $_POST['contrasena'] : "",
-            'rol'=>"Alumno",
-            'matricula'=>(isset($_POST['matricula'])) ? $_POST['matricula'] : ""
-        );
         //Verificar si el alumno y correo ya existe
         $alumnoController = new alumno;
         $buscar = $alumnoController->listOneMatricula($alumno['matricula']);
-        $cuentaController = new cuenta;
-        $buscarCorreo = $cuentaController->listOnePorCorreo($alumno['correo']);
+        $buscarCorreo = $alumnoController->listOnePorCorreo($alumno['correo']);
         if($buscar['status'] == 200){
             if(!empty($buscar['alumno'])){
                 echo '
@@ -59,32 +51,14 @@
                     //Agregar
                     $agregar = $alumnoController->create($alumno);
                     if($agregar['status'] == 200){
-                        //Agregar cuenta
-                        $agregarCuenta = $cuentaController->create($cuenta);
-                        if($agregarCuenta['status'] == 200){
-                            echo '
-                                <div id="successModal" class="modal">
-                                    <div class="modal-content">
-                                        <p>Se ha agregado correctamente a: <strong>"'.$alumno['nombre'].'"</strong></p>
-                                        <span class="close-button" onclick="closeModal()">Cerrar</span>
-                                    </div>
+                        echo '
+                            <div id="successModal" class="modal">
+                                <div class="modal-content">
+                                    <p>Se ha agregado correctamente a: <strong>"'.$alumno['nombre'].'"</strong></p>
+                                    <span class="close-button" onclick="closeModal()">Cerrar</span>
                                 </div>
-                            ';
-                        } else {
-                            $buscar = $alumnoController->listOneMatricula($alumno['matricula']);
-                            if($buscar['status'] == 200){
-                                $eliminar = $alumnoController->delete($buscar['id']);
-                            }
-                            echo '
-                                <div id="errorModal" class="modal">
-                                    <div class="modal-content">
-                                        <h1>ERROR</h1>
-                                        <p><strong>Error al registrar: </strong>"'.$agregarCuenta['error'].'"</p>
-                                        <span class="redirect-button" onclick="closeModal()">Cerrar</span>
-                                    </div>
-                                </div>
-                            ';
-                        }
+                            </div>
+                        ';
                     } else {
                         echo '
                         <div id="errorModal" class="modal">
@@ -147,6 +121,10 @@
         </select>
         <br/>
         <br/>
+        Correo:
+        <input type="email" name="correo" id="">
+        <br/>
+        <br/>
         Carrera:
         <select name="carrera" id="">
             <option value="" disabled selected>Selcciona una carrera</option>
@@ -167,14 +145,6 @@
         <br/>
         Grupo:
         <input type="text" name="grupo" id="">
-        <br/>
-        <br/>
-        Correo:
-        <input type="email" name="correo" id="">
-        <br/>
-        <br/>
-        Contraseña:
-        <input type="password" name="contrasena" id="">
         <br/>
         <br/>
         <a href="listAlumnos.php">Cancelar</a>

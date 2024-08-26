@@ -1,6 +1,6 @@
 <?php
-    require "../../QR_back/Controllers/alumnosController.php";
-    require "../../QR_back/generateQR.php";
+    require "../Backend/Controllers/alumnosController.php";
+    require "../Backend/generateQR.php";
 
     session_start();
     if(!isset($_SESSION["correo"])){
@@ -71,8 +71,8 @@
                     <td><?php echo $alumno['grupo']; ?></td>
                     <td class="centered">
                         <form action="listAlumnos.php" method="get">
-                            <img src="<?php echo "../../assets/QR's/".$alumno['matricula'].".png" ?>" alt="QR del alumno" class="centered-image">
-                            <input type="hidden" name="ruta" value="<?php echo "../../assets/QR's/".$alumno['matricula'].".png" ?>">
+                            <img src="<?php echo "../assets/QR's/".$alumno['matricula'].".png" ?>" alt="QR del alumno" class="centered-image">
+                            <input type="hidden" name="ruta" value="<?php echo "../assets/QR's/".$alumno['matricula'].".png" ?>">
                             <input type="submit" value="Descargar">
                         </form>
                     </td>

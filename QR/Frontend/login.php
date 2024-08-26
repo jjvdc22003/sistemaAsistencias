@@ -1,5 +1,5 @@
 <?php 
-    require_once '../../QR_back/Controllers/cuentasController.php';
+    require_once '../Backend/Controllers/cuentasController.php';
     session_start();
     if(isset($_SESSION['correo'])){
         if(isset($_SESSION['matricula']))
@@ -62,7 +62,6 @@
         <br>
         <?php echo ($f==1)?"Usuario no encontrado<br>":""; ?>
         <?php echo ($f==2)?"Usuario o contraseña incorrectos<br>":""; ?>
-        <p>¿No estás registrado? <a href="signup.php">Registrate aquí</a> </p>
     </form>
 </body>
 </html>
