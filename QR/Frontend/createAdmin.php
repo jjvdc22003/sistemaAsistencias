@@ -86,15 +86,15 @@
 <h3>Crear cuenta</h3>
     <form action="createAdmin.php" method="post">
         Correo:
-        <input type="text" name="correo" id="">
+        <input type="text" name="correo" id="" required>
         <br/>
         <br/>
         Contraseña:
-        <input type="password" name="contrasena" id="">
+        <input type="password" name="contrasena" id="" required>
         <br/>
         <br/>
         Rol:
-        <select name="rol" id="">
+        <select name="rol" id="" required>
             <option value="Admin">Administrador</option>
             <option value="Trabajador" selected>Trabajador</option>
         </select>

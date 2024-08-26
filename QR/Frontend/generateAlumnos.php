@@ -5,6 +5,7 @@
         header('Location: login.php');
         exit();
     }
+
     if($_POST){
         if (isset($_FILES['archivoExcel'])) {
             $nombreArchivo = $_FILES['archivoExcel']['name'];

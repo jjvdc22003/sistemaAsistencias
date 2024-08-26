@@ -103,26 +103,26 @@
     <h3>Agregar alumno</h3>
     <form action="createAlumno.php" method="post">
         Matrícula:
-        <input type="text" name="matricula" id="">
+        <input type="text" name="matricula" id="" required>
         <br/>
         <br/>
         Nombre completo:
-        <input type="text" name="nombre" id="" placeholder="Comenzado por apellidos">
+        <input type="text" name="nombre" id="" placeholder="Comenzado por apellidos" required>
         <br/>
         <br/>
         Sexo:
-        <select name="sexo" id="">
+        <select name="sexo" id="" required>
             <option value="H">H</option>
             <option value="M">M</option>
         </select>
         <br/>
         <br/>
         Correo:
-        <input type="email" name="correo" id="">
+        <input type="email" name="correo" id="" required>
         <br/>
         <br/>
         Carrera:
-        <select name="carrera" id="">
+        <select name="carrera" id="" required>
             <option value="" disabled selected>Selcciona una carrera</option>
             <option value="Ingeniería en Computación">Ingeniería en Computación</option>
             <option value="Ingeniería en Electrónica">Ingeniería en Electrónica</option>
@@ -140,7 +140,7 @@
         <br/>
         <br/>
         Grupo:
-        <input type="text" name="grupo" id="">
+        <input type="text" name="grupo" id="" required>
         <br/>
         <br/>
         <a href="listAlumnos.php">Cancelar</a>
