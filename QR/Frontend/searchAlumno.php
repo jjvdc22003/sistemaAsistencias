@@ -7,10 +7,6 @@
         header('Location: login.php');
         exit();
     }
-    elseif (isset($_SESSION["matricula"])) {
-        header('Location: indexA.php');
-        exit();
-    }
 
     if($_GET){
         if (empty(trim($_GET["query"]))) {
