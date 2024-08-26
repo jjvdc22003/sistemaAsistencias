@@ -1,5 +1,5 @@
 <?php
-    require "../../QR_back/Controllers/asistenciasController.php";
+    require "../Backend/Controllers/asistenciasController.php";
 
     session_start();
     if(!isset($_SESSION["correo"])){
@@ -100,7 +100,7 @@
                     <div class="modal-content">
                         <p>La matrícula está <strong>VACÍA</strong>.</p>
                         <span class="blue-button" onclick="reloadModal()">Registrar otra matrícula</span>
-                        <span class="close-button" onclick="closeModal()">Volver al menú de asistencias</span>
+                        <span class="close-button" onclick="closeModal()">Volver al menú</span>
                     </div>
                 </div>
             ';
@@ -126,7 +126,7 @@
     
      <br/>
      <br/>
-     <a href="menuAsistencias.php" class="close-button">Regresar al menú de asistencias</a>
+     <a href="index.php" class="close-button">Regresar al menú</a>
 </body>
 </html>
 
@@ -135,7 +135,7 @@
         window.location.href = 'registrarPorMatricula.php';
     }
     function closeModal() {
-        window.location.href = 'menuAsistencias.php';
+        window.location.href = 'index.php';
     }
 </script>
 

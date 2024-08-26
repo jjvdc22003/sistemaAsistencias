@@ -1,9 +1,8 @@
 <?php 
-    require "../../QR_back/Controllers/cuentasController.php";
+    require "../Backend/Controllers/cuentasController.php";
 
     $id="";
     $correo = "";
-    $contrasena = "";
     $rol = "";
 
     session_start();
@@ -25,12 +24,10 @@
 
     if($_POST){
         $correo = "";
-        $contrasena = "";
         $rol = "";
         $id=(isset($_POST['id'])) ? $_POST['id']:"";
         $admin = array(
             'correo' => (isset($_POST['correo'])) ? $_POST['correo'] : "",
-            'contrasena' => (isset($_POST['contrasena'])) ? $_POST['contrasena'] : "",
             'rol' => (isset($_POST['rol'])) ? $_POST['rol'] : ""
         );
         //Actualizar
@@ -65,17 +62,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar admin</title>
+    <title>Actualizar administrador</title>
 </head>
 <body>
-<h3>Actualizar cuenta</h3>
+<h1>Actualizar cuenta</h1>
     <form action="updateAdmin.php" method="post">
         Correo:
         <input  value="<?php echo $admin['correo']; ?>" type="text" name="correo" id="">
-        <br/>
-        <br/>
-        Contraseña:
-        <input  value="<?php echo $admin['contrasena']; ?>" type="text" name="contrasena" id="">
         <br/>
         <br/>
         Rol:
@@ -88,6 +81,12 @@
         <input type="hidden" name="id" value="<?php echo $id ?>">
         <a href="listAdministradores.php">Volver</a>
         <input type="submit" value="Guardar">
+    </form>
+    <br>
+    <br>
+    <form action="changeContrasena.php" method="get">
+        <input type="hidden" name="id" value="<?php echo $id ?>">
+        <input type="submit" value="Cambiar contraseña">
     </form>
 </body>
 </html>

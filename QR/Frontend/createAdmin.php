@@ -1,5 +1,5 @@
 <?php 
-    require "../../QR_back/Controllers/cuentasController.php";
+    require "../Backend/Controllers/cuentasController.php";
 
     $id="";
     $correo = "";
@@ -23,7 +23,7 @@
             'contrasena' => (isset($_POST['contrasena'])) ? $_POST['contrasena'] : "",
             'rol' => (isset($_POST['rol'])) ? $_POST['rol'] : "",
         );
-        //Actualizar
+        //Crear
         $cuentaController = new cuenta;
         $buscarCorreo = $cuentaController->listOnePorCorreo($admin['correo']);
 
@@ -39,9 +39,9 @@
                     </div>
                 ';
             } else{
-                $actualizar = $cuentaController->createAdmin($admin);
+                $crear = $cuentaController->create($admin);
                 
-                 if($actualizar['status'] == 200){
+                 if($crear['status'] == 200){
                      echo '
                          <div id="successModal" class="modal">
                              <div class="modal-content">
@@ -55,7 +55,7 @@
                          <div id="successModal" class="modal">
                              <div class="modal-content">
                                  <h1>ERROR</h1>
-                                 <p><strong>Error al crear: </strong>"'.$actualizar['error'].'"</p>
+                                 <p><strong>Error al crear: </strong>"'.$crear['error'].'"</p>
                                  <span class="close-button" onclick="closeModal()">Cerrar</span>
                              </div>
                          </div>
@@ -84,7 +84,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear admin</title>
+    <title>Crear administrador</title>
 </head>
 <body>
 <h3>Crear cuenta</h3>
@@ -94,7 +94,7 @@
         <br/>
         <br/>
         Contraseña:
-        <input type="text" name="contrasena" id="">
+        <input type="password" name="contrasena" id="">
         <br/>
         <br/>
         Rol:

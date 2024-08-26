@@ -20,7 +20,7 @@
 <body>
     <h1>Sistema de asistencias</h1>
 
-    <a href="menuAsistencias.php" class ="green-button">Asistencias</a>
+    <a href="registrarAsistencia.php" class ="green-button">Registrar asistencias</a>
     <a href="listAlumnos.php" class ="blue-button">Gestionar alumnos</a>
     <a href="listAdministradores.php" class ="purple-button">Gestionar administradores</a>
     <a href="logout.php" class ="red-button">Cerrar sesión</a>
