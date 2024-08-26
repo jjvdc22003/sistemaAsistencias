@@ -4,10 +4,7 @@
         header('Location: login.php');
         exit();
     }
-    elseif (isset($_SESSION["matricula"])) {
-      header('Location: indexA.php');
-      exit();
-  }
+
     require_once '../Backend/Controllers/asistenciasController.php';
     require_once '../Backend/generateList.php';
     $conexion= new asistencia;
@@ -32,18 +29,18 @@
 <body>
     <h2>Seleccione el día para generar la lista</h2>
     <br/>
-    <form action="getLista.php" method="post">
+    <form action="index.php" method="post">
         <input type="date" name="fecha" id="fecha" value="<?php echo isset($fecha)?$fecha:date('Y-m-d'); ?>">
         <input type="hidden" name="flag" value="0">
         <button class ="green-button" type="submit">Seleccionar fecha</button>
-        <a href="index.php" class ="azul-button">Regresar</a>
+        <a href="logout.php" class ="azul-button">Cerrar sesión</a>
         
       </form>
 
     <?php
       if ($_POST) {
         ?>
-          <form action="getLista.php" method="get">
+          <form action="index.php" method="get">
             <input type="hidden" name="fecha" value="<?php echo $fecha ?>">
             <input type="submit" value="Generar lista">
           </form>
