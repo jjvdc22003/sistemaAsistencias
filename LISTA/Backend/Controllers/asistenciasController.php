@@ -2,7 +2,6 @@
     class asistencia{
 
         public function __construct() {
-            require_once __DIR__."/../generateQR.php";
             require_once __DIR__."/../BD.php";
 
             // Conexión a la base de datos

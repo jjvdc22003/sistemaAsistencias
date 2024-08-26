@@ -8,8 +8,8 @@
       header('Location: indexA.php');
       exit();
   }
-    require_once '../../QR_back/Controllers/asistenciasController.php';
-    require_once '../../QR_back/generateList.php';
+    require_once '../Backend/Controllers/asistenciasController.php';
+    require_once '../Backend/generateList.php';
     $conexion= new asistencia;
 
     if($_GET){
