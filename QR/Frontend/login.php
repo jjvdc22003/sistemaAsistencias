@@ -39,11 +39,11 @@
     <h1>Inicia sesión con tu usuario y contraseña</h1>
     <form action="login.php" method="post">
         Correo:
-        <input type="email" name="email" id="">
+        <input type="email" name="email" id="" required>
         <br>
         <br>
         Contraseña
-        <input type="password" name="password" id="">
+        <input type="password" name="password" id="" required>
         <br>
         <br>
         <button type="submit">Iniciar sesión</button>

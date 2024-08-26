@@ -63,27 +63,27 @@
 <body>
 <h3>Actualizar usuario</h3>
     <form action="updateAlumno.php" method="post">
-    Matricula:
-        <input  value="<?php echo $alumno['matricula']; ?>" type="text" name="matricula" id="">
+        Matricula:
+        <input  value="<?php echo $alumno['matricula']; ?>" type="text" name="matricula" id="" required>
         <br/>
         <br/>
         Nombre:
-        <input  value="<?php echo $alumno['nombre']; ?>" type="text" name="nombre" id="">
+        <input  value="<?php echo $alumno['nombre']; ?>" type="text" name="nombre" id="" required>
         <br/>
         <br/>
         Sexo:
-        <select name="sexo" id="">
+        <select name="sexo" id="" required>
             <option value="H" <?php echo ($alumno['sexo']=='H')?"selected":""; ?> >H</option>
             <option value="M" <?php echo ($alumno['sexo']=='M')?"selected":""; ?> >M</option>
         </select>
         <br/>
         <br/>
         Correo:
-        <input  value="<?php echo $alumno['correo']; ?>" type="text" name="correo" id="">
+        <input  value="<?php echo $alumno['correo']; ?>" type="text" name="correo" id="" required>
         <br/>
         <br/>
         Carrera:
-        <select name="carrera" id="">
+        <select name="carrera" id="" required>
             <option value="Ingeniería en Computación" <?php echo ($alumno['carrera']=="Ingeniería en Computación")?"selected":""; ?> >Ingeniería en Computación</option>
             <option value="Ingeniería en Electrónica" <?php echo ($alumno['carrera']=="Ingeniería en Electrónica")?"selected":""; ?> >Ingenieria en Electrónica</option>
             <option value="Ingenieria en Diseño" <?php echo ($alumno['carrera']=="Ingenieria en Diseño")?"selected":""; ?> >Ingenieria en Diseño</option>
@@ -100,7 +100,7 @@
         <br/>
         <br/>
         Grupo:
-        <input  value="<?php echo $alumno['grupo']; ?>" type="text" name="grupo" id="">
+        <input  value="<?php echo $alumno['grupo']; ?>" type="text" name="grupo" id="" required>
         <br/>
         <br/>
         <input type="hidden" name="id" value="<?php echo $id ?>">

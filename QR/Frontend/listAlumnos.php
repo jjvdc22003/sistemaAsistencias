@@ -35,7 +35,7 @@
     <form action="searchAlumno.php" method="get">
         Busqueda por matrícula:
         <br>
-        <input type="text" name="query" placeholder="Ingresa la matricula" size="30">
+        <input type="text" name="query" placeholder="Ingresa la matricula" size="30" required>
         <input type="submit" value="Buscar">
     </form>
     <br/>

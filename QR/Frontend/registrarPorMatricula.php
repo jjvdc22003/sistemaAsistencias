@@ -116,7 +116,7 @@
     <form action="registrarPorMatricula.php" method="get">
         Matrícula:
         <br>
-        <input type="text" name="matricula" placeholder="Ingresa la matricula" size="30">
+        <input type="text" name="matricula" placeholder="Ingresa la matricula" size="30" required>
         <input type="submit" value="Registrar">
     </form>
     

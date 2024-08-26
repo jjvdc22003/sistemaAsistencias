@@ -64,11 +64,11 @@
 <h1>Actualizar cuenta</h1>
     <form action="updateAdmin.php" method="post">
         Correo:
-        <input  value="<?php echo $admin['correo']; ?>" type="text" name="correo" id="">
+        <input  value="<?php echo $admin['correo']; ?>" type="text" name="correo" id="" required>
         <br/>
         <br/>
         Rol:
-        <select name="rol" id="">
+        <select name="rol" id="" required>
             <option value="Admin" <?php echo ($admin['rol']=='Admin')?"selected":""; ?> >Administrador</option>
             <option value="Trabajador" <?php echo ($admin['rol']=='Trabajador')?"selected":""; ?> >Trabajador</option>
         </select>
