@@ -1,6 +1,12 @@
 <?php
     require "../Backend/Controllers/cuentasController.php";
 
+    session_start();
+    if(!isset($_SESSION["correo"])){
+        header('Location: login.php');
+        exit();
+    }
+
     if($_GET) {
         $id = $_GET['id'];
     }

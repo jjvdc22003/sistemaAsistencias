@@ -2,10 +2,7 @@
     require_once '../Backend/Controllers/cuentasController.php';
     session_start();
     if(isset($_SESSION['correo'])){
-        if(isset($_SESSION['matricula']))
-            header('Location: indexA.php');
-        else
-            header('Location: index.php');
+        header('Location: index.php');
         exit();
     }
 
@@ -16,17 +13,9 @@
 
         if(!empty($resultado['cuenta'])){
             if(password_verify($_POST['password'], $resultado['cuenta'][0]['contrasena'] )){
-                if($resultado['cuenta'][0]['rol']=="Alumno"){
-                    $_SESSION["correo"]=$_POST['email'];
-                    $_SESSION["matricula"]=$resultado['cuenta'][0]['matricula'];
-                    header('Location: indexA.php');
-                    exit();
-                }
-                else{
-                    $_SESSION["correo"]=$_POST['email'];
-                    header('Location: index.php');
-                    exit();
-                }
+                $_SESSION["correo"]=$_POST['email'];
+                header('Location: index.php');
+                exit();
             }
             else{
                 $f = 2;
