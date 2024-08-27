@@ -5,7 +5,7 @@
         exit();
     }
 
-    require_once '../../QR_back/Controllers/asistenciasController.php';
+    require_once '../Backend/Controllers/asistenciasController.php';
 
     if($_GET){
         $id = $_GET['id'];
@@ -25,7 +25,7 @@
             <div id="successModal" class="modal">
                 <div class="modal-content">
                     <p>Se ha actualizado la asistencia</p>
-                    <form action="getLista.php" method="post">
+                    <form action="index.php" method="post">
                         <input type="hidden" name="fecha" value="<?php echo $fecha; ?>">
                         <input type="hidden" name="flag" value="0">
                         <button type="submit" class="close-button">Cerrar</button>
@@ -47,19 +47,19 @@
     <h3>Editar asistencia</h3>
     <form action="updateLista.php" method="post">
         Matricula:
-        <input  value="<?php echo isset($matricula)?$matricula:""; ?>" type="text" name="matricula_alumno" id="">
+        <input  value="<?php echo isset($matricula)?$matricula:""; ?>" type="text" required name="matricula_alumno" id="">
         <br/>
         <br/>
         Fecha:
-        <input  value="<?php echo isset($fecha)?$fecha:""; ?>" type="date" name="fecha" id="">
+        <input  value="<?php echo isset($fecha)?$fecha:""; ?>" type="date" required name="fecha" id="">
         <br/>
         <br/>
         Hora de entrada:
-        <input  value="<?php echo isset($hora_entrada)?$hora_entrada:"00:00"; ?>" type="time" name="hora_entrada" id="">
+        <input  value="<?php echo isset($hora_entrada)?$hora_entrada:"00:00"; ?>" type="time" required name="hora_entrada" id="">
         <br/>
         <br/>
         Hora de salida:
-        <input  value="<?php echo isset($hora_salida)?$hora_salida:"00:00"; ?>" type="time" name="hora_salida" id="">
+        <input  value="<?php echo isset($hora_salida)?$hora_salida:"00:00"; ?>" type="time" required name="hora_salida" id="">
         <br/>
         <br/>
         <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -105,6 +105,6 @@
 
 <script>
     function closeModal() {
-        window.location.href = 'getLista.php';
+        window.location.href = 'index.php';
     }
 </script>
