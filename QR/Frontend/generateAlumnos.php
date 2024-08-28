@@ -22,7 +22,6 @@
             // Mover el archivo a la carpeta de destino
             $rutaDestino = $directorioDestino . basename($nombreArchivo);
             if (move_uploaded_file($rutaTemporal, $rutaDestino)) {
-                echo "El archivo se ha subido correctamente.";
             } else {
                 echo "Error al mover el archivo.";
             }
@@ -53,6 +52,7 @@
                 </div>
             ';
         }
+        unlink($rutaDestino);
     }
 
 ?>
