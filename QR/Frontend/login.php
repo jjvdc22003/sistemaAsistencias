@@ -14,6 +14,7 @@
         if(!empty($resultado['cuenta'])){
             if(password_verify($_POST['password'], $resultado['cuenta'][0]['contrasena'] )){
                 $_SESSION["correo"]=$_POST['email'];
+                $_SESSION["rol"]=$resultado['cuenta'][0]['rol'];
                 header('Location: index.php');
                 exit();
             }
