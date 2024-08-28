@@ -6,6 +6,10 @@
         header('Location: login.php');
         exit();
     }
+    elseif ($_SESSION["rol"]!="Admin") {
+        header('Location: index.php');
+        exit();
+    }
 
     if($_GET) {
         $id = $_GET['id'];

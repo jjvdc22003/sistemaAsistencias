@@ -18,7 +18,7 @@
 
     <a href="registrarAsistencia.php" class ="green-button">Registrar asistencias</a>
     <a href="listAlumnos.php" class ="blue-button">Gestionar alumnos</a>
-    <a href="listAdministradores.php" class ="purple-button">Gestionar administradores</a>
+    <?php if($_SESSION["rol"]=='Admin'){ ?><a href="listAdministradores.php" class ="purple-button">Gestionar administradores</a> <?php } ?>
     <a href="logout.php" class ="red-button">Cerrar sesión</a>
 </body>
 </html>
